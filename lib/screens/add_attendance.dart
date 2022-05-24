@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:my_school/widgets/studmaindrawer.dart';
+import '../screens/settings_screen.dart';
+import '../widgets/teach_main_drawer.dart';
 
-class StudView extends StatefulWidget {
-  const StudView({ Key? key }) : super(key: key);
+class Addattendance extends StatefulWidget {
+  const Addattendance({Key? key}) : super(key: key);
 
   @override
-  State<StudView> createState() => _StudViewState();
+  State<Addattendance> createState() => _AddattendanceState();
 }
 
-class _StudViewState extends State<StudView> {
+class _AddattendanceState extends State<Addattendance> {
+  List dropdownvalues = ['7th A', '8th B'];
+  var datepickercontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    String dropdownitemvalues = '${dropdownvalues[0]}';
     return Scaffold(
-      
-       appBar: AppBar(),
-       endDrawer:const Studmaindrawer(),
+      appBar: AppBar(),
+      endDrawer: const Teachmaindrawer(),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -32,7 +35,7 @@ class _StudViewState extends State<StudView> {
                     Padding(
                       padding: EdgeInsets.only(left: 15),
                       child: Text(
-                        'View',
+                        'Activities',
                         style: TextStyle(
                           fontFamily: 'RobotoMono',
                           fontWeight: FontWeight.bold,
@@ -51,7 +54,7 @@ class _StudViewState extends State<StudView> {
                       Padding(
                           padding: EdgeInsets.only(left: 15),
                           child: Text(
-                            'Attendance',
+                            'Add Attendance',
                             style: TextStyle(),
                           )),
                     ],
@@ -69,7 +72,7 @@ class _StudViewState extends State<StudView> {
                       Icon(Icons.change_circle),
                       Padding(
                           padding: EdgeInsets.only(left: 15),
-                          child: Text('Marks')),
+                          child: Text('Post Grade')),
                     ],
                   ),
                   onTap: () {
@@ -84,7 +87,7 @@ class _StudViewState extends State<StudView> {
                       Padding(
                           padding: EdgeInsets.only(left: 15),
                           child: Text(
-                            'Time Table',
+                            'Post Notification',
                             style: TextStyle(),
                           )),
                     ],
@@ -110,18 +113,69 @@ class _StudViewState extends State<StudView> {
               ],
             ),
           ),
-          Card(
-            margin: const EdgeInsets.only(top: 70, left: 200),
-            elevation: 3,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            child: Container(
-              width: 750,
-              height: 450,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: const Text('profile status goes here.'),
+          Padding(
+            padding: const EdgeInsets.only(left: 100, top: 80),
+            // child: Container(
+            //   width: 950,
+            //   height: 550,
+            //   decoration: const BoxDecoration(
+            //       gradient: LinearGradient(colors: [
+            //     Color.fromARGB(255, 214, 204, 204),
+            //     Color.fromARGB(255, 246, 241, 241),
+            //   ])),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 250,
+                      height: 30,
+                      child: DropdownButtonFormField(
+                       onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SettingsScreen())),
+                        items: dropdownvalues.map((item) {
+                          return DropdownMenuItem(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SettingsScreen())),
+                            child: Text(item),
+                            value: item,
+                          );
+                        }).toList(),
+                        onChanged: (val) {
+                          dropdownitemvalues = val as String;
+                        },
+                        value: dropdownitemvalues,
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 50),
+                      height: 30,
+                      width: 90,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: const Icon(Icons.calendar_today),
+                            onPressed: () {
+                              showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime(2008),
+                                  firstDate: DateTime(2004),
+                                  lastDate: DateTime.now());
+                            },
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                    )
+                  ],
+                )
+              ],
             ),
           ),
         ],

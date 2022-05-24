@@ -1,12 +1,11 @@
 //import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:my_school/screens/studview.dart';
-import 'package:my_school/screens/teachActivities.dart';
-import 'package:my_school/screens/teachmainscreen.dart';
-import '../screens/SettingsScreen.dart';
-import 'exit_changepinConfirmation.dart';
-import 'footer.dart';
+import 'package:my_school/screens/director_tasks.dart';
+import 'package:my_school/widgets/footer.dart';
+import '../screens/settings_screen.dart';
+import '../screens/director_main_screen.dart';
+import 'exit_changepin_confirmation.dart';
 
 //import '../screens/LoginScreen.dart';
 
@@ -14,8 +13,8 @@ import 'footer.dart';
 //    //Colors.blue;
 
 // }
-class Teachmaindrawer extends StatelessWidget {
-  const Teachmaindrawer({Key? key}) : super(key: key);
+class Directormaindrawer extends StatelessWidget {
+  const Directormaindrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +39,17 @@ class Teachmaindrawer extends StatelessWidget {
             onTap: () => Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: ((context) => const Teachmainscreen())),
+                  builder: ((context) => const Directormainscreen())),
             ),
           ),
           ListTile(
-            title: const Text('Activities'),
+            title: const Text('Tasks'),
             trailing: const Icon(Icons.task),
             onTap: () {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const Teachactivities()));
+                      builder: (context) => const Directortasks()));
             },
           ),
           const Divider(),
@@ -67,6 +66,30 @@ class Teachmaindrawer extends StatelessWidget {
           const Divider(),
           const ExitConfirmation(),
           const FooterText(),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 140),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: const [
+          //       Padding(
+          //           padding: EdgeInsets.only(
+          //             right: 10,
+          //           ),
+          //           child: Icon(Icons.school)),
+          //       Text('Montosorian high school'),
+          //     ],
+          //   ),
+          // ),
+          // const Center(
+          //   child: Text(
+          //     'School management system web app(v.1)',
+          //     style: TextStyle(
+          //       fontFamily: 'Raleway',
+          //       fontStyle: FontStyle.italic,
+          //       fontSize: 15,
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

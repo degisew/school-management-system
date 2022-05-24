@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_school/screens/ManageUser.dart';
-import 'package:my_school/screens/SettingsScreen.dart';
-import 'package:my_school/screens/addUser.dart';
-import 'package:my_school/screens/paymentRecord.dart';
-import 'package:my_school/screens/subjectRegistration.dart';
+import 'package:my_school/screens/manage_user.dart';
+import 'package:my_school/screens/settings_screen.dart';
+import 'package:my_school/screens/add_user.dart';
+import 'package:my_school/screens/payment_record.dart';
 import 'package:my_school/widgets/footer.dart';
-//import 'package:my_school/screens/teachRegistration.dart';
-import '../screens/studRegistratin.dart';
-import '../screens/teachRegistration.dart';
-import '../widgets/exit_changepinConfirmation.dart';
-import '../models/studentGridView.dart';
+import 'exit_changepin_confirmation.dart';
 
 class AdminMainDrawer extends StatelessWidget {
-  AdminMainDrawer({Key? key}) : super(key: key);
+ const AdminMainDrawer({Key? key}) : super(key: key);
 
   // final List<AdminDrawer> admnindrawer = [
   //   AdminDrawer(title: 'Home', icon: const Icon(Icons.home)),

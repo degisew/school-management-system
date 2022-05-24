@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_school/widgets/Adminmaindrawer.dart';
-import 'package:my_school/widgets/exit_changepinConfirmation.dart';
-import 'package:my_school/widgets/studmaindrawer.dart';
-import 'package:my_school/widgets/teachmaindrawer.dart';
+import 'package:my_school/widgets/teach_main_drawer.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -65,7 +62,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   padding: const EdgeInsets.only(left: 20),
                   child: RotatedBox(
                     quarterTurns: 1,
-                    child: Container(
+                    child: SizedBox(
                       // decoration: const BoxDecoration(
                       //     gradient: LinearGradient(colors: [
                       //   Colors.amber,
@@ -104,11 +101,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                 ),
-                Flexible(
+                const Flexible(
                   child: Card(
                     elevation: 20,
-                    margin: const EdgeInsets.only(left: 150, right: 200),
-                    child: Container(
+                    margin:  EdgeInsets.only(left: 150, right: 200),
+                    child: SizedBox(
                       // padding: const EdgeInsets.only(left: 160, right: 150),
                       //alignment: Alignment.center,
                       height: 500,
@@ -116,15 +113,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       // width: double.maxFinite,
                       child: TabBarView(
                         children: [
-                          Container(
-                            child: const Center(
-                              child: Text('Profile'),
-                            ),
+                           Center(
+                            child: Text('Profile'),
                           ),
-                          Container(
-                            child: const Center(
-                              child: Text('change pin'),
-                            ),
+                           Center(
+                            child: Text('change pin'),
                           ),
                         ],
                       ),

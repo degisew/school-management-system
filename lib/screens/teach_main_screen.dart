@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_school/models/studentGridView.dart';
-import 'package:my_school/screens/CompalinScreen.dart';
-import 'package:my_school/widgets/teachmaindrawer.dart';
-import '../widgets/studmaindrawer.dart';
+import '../widgets/teach_main_drawer.dart';
 
 class Teachmainscreen extends StatelessWidget {
   const Teachmainscreen({Key? key}) : super(key: key);

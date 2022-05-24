@@ -1,14 +1,10 @@
 //import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:my_school/screens/directortasks.dart';
-import 'package:my_school/screens/studview.dart';
-import 'package:my_school/screens/teachActivities.dart';
-import 'package:my_school/screens/teachmainscreen.dart';
-import 'package:my_school/widgets/footer.dart';
-import '../screens/SettingsScreen.dart';
-import '../screens/Directormainscreen.dart';
-import 'exit_changepinConfirmation.dart';
+import 'package:my_school/screens/stud_view.dart';
+import '../screens/settings_screen.dart';
+import 'exit_changepin_confirmation.dart';
+import 'footer.dart';
 
 //import '../screens/LoginScreen.dart';
 
@@ -16,8 +12,8 @@ import 'exit_changepinConfirmation.dart';
 //    //Colors.blue;
 
 // }
-class Directormaindrawer extends StatelessWidget {
-  const Directormaindrawer({Key? key}) : super(key: key);
+class Studmaindrawer extends StatelessWidget {
+  const Studmaindrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,23 +32,16 @@ class Directormaindrawer extends StatelessWidget {
             accountName: Text('accountName'),
             accountEmail: Text('jegisew21@gmail.com'),
           ),
-          ListTile(
-            title: const Text('Home'),
-            trailing: const Icon(Icons.home),
-            onTap: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: ((context) => const Directormainscreen())),
-            ),
+          const ListTile(
+            title: Text('Home'),
+            trailing: Icon(Icons.home),
           ),
           ListTile(
-            title: const Text('Tasks'),
-            trailing: const Icon(Icons.task),
+            title: const Text('view'),
+            trailing: const Icon(Icons.remove_red_eye),
             onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const Directortasks()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const StudView()));
             },
           ),
           const Divider(),
@@ -69,30 +58,6 @@ class Directormaindrawer extends StatelessWidget {
           const Divider(),
           const ExitConfirmation(),
           const FooterText(),
-          // Padding(
-          //   padding: const EdgeInsets.only(top: 140),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: const [
-          //       Padding(
-          //           padding: EdgeInsets.only(
-          //             right: 10,
-          //           ),
-          //           child: Icon(Icons.school)),
-          //       Text('Montosorian high school'),
-          //     ],
-          //   ),
-          // ),
-          // const Center(
-          //   child: Text(
-          //     'School management system web app(v.1)',
-          //     style: TextStyle(
-          //       fontFamily: 'Raleway',
-          //       fontStyle: FontStyle.italic,
-          //       fontSize: 15,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

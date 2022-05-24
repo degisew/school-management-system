@@ -1,13 +1,13 @@
 //import 'package:fluent_ui/fluent_ui.dart';
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:my_school/models/studentGridView.dart';
-import 'package:my_school/screens/CompalinScreen.dart';
-import 'package:my_school/screens/studRegistratin.dart';
-import 'package:my_school/widgets/directormaindrawer.dart';
-import 'package:my_school/widgets/teachmaindrawer.dart';
-import '../widgets/studmaindrawer.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+//import 'package:my_school/models/student_grid_view.dart';
+//import 'package:my_school/screens/compalin_screen.dart';
+//import 'package:my_school/screens/stud_registratin.dart';
+import 'package:my_school/widgets/director_main_drawer.dart';
+//import 'package:my_school/widgets/teach_main_drawer.dart';
+//import '../widgets/stud_main_drawer.dart';
+//import 'package:dropdown_button2/dropdown_button2.dart';
 
 class Directormainscreen extends StatefulWidget {
   const Directormainscreen({Key? key}) : super(key: key);
@@ -21,12 +21,11 @@ class _DirectormainscreenState extends State<Directormainscreen> {
 
   List<String> dropdownitems=['a','b','c','d'];
 
-  // final List<StudGridView> homescreengrid = [
   @override
   Widget build(BuildContext context) {
 
     
-    var popupselectedval = 'Admin';
+
     return WillPopScope(
       onWillPop: () async => wilpop,
       // child: DefaultTabController(

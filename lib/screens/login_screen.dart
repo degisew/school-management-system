@@ -1,8 +1,7 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../screens/adminmainscreen.dart';
-import './studentMainScreen.dart';
+import 'package:my_school/screens/student_main_screen.dart';
+import 'admin_main_screen.dart';
 
 class LoginSceen extends StatefulWidget {
   const LoginSceen({Key? key}) : super(key: key);
@@ -14,15 +13,14 @@ class LoginSceen extends StatefulWidget {
 class _LoginSceenState extends State<LoginSceen> {
   @override
   Widget build(BuildContext context) {
-
     final os = (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS);
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    var keyboard = MediaQuery.of(context).viewInsets.bottom;
+    //var keyboard = MediaQuery.of(context).viewInsets.bottom;
     var _formkey = GlobalKey<FormState>();
-    var un = TextEditingController();
-    var pswd = TextEditingController();
+    //var un = TextEditingController();
+    //var pswd = TextEditingController();
     final appbar = AppBar(
       backgroundColor: Colors.transparent,
       // title: const Center(
@@ -61,14 +59,10 @@ class _LoginSceenState extends State<LoginSceen> {
                 height: os ? height * 0.8 : 600,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 244, 240, 238),
-                      Color.fromARGB(255, 66, 187, 244),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topLeft
-                  ),
+                  gradient: const LinearGradient(colors: [
+                    Color.fromARGB(255, 244, 240, 238),
+                    Color.fromARGB(255, 66, 187, 244),
+                  ], begin: Alignment.bottomCenter, end: Alignment.topLeft),
                 ),
                 child: Form(
                   key: _formkey,
@@ -96,6 +90,7 @@ class _LoginSceenState extends State<LoginSceen> {
                             if (value == null) {
                               return 'please enter your username';
                             }
+                            return null;
                           },
                         ),
                       ),
@@ -109,6 +104,7 @@ class _LoginSceenState extends State<LoginSceen> {
                               if (value == null) {
                                 return 'this field is required. please fill';
                               }
+                              return null;
                             },
                           )),
                       const Padding(
@@ -129,7 +125,7 @@ class _LoginSceenState extends State<LoginSceen> {
                             left: 140, right: 140, top: 20),
                         child: ElevatedButton(
                           onPressed: () {
-                            var validate = _formkey.currentState!.validate();
+                            //var validate = _formkey.currentState!.validate();
                             // if (!validate) {
                             //   ScaffoldMessenger.of(context)
                             //       .showSnackBar(const SnackBar(
@@ -147,7 +143,7 @@ class _LoginSceenState extends State<LoginSceen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => const AdminMainScreen()));
+                                    builder: (_) =>  Studmainscreen()));
                             // }
                           },
                           child: const Text(

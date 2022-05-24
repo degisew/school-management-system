@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/Adminmaindrawer.dart';
-import 'package:fluent_ui/fluent_ui.dart';
+import '../widgets/admin_main_drawer.dart';
+//import 'package:fluent_ui/fluent_ui.dart';
 
 class AdminMainScreen extends StatelessWidget {
   const AdminMainScreen({Key? key}) : super(key: key);
@@ -16,11 +16,9 @@ class AdminMainScreen extends StatelessWidget {
           style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
       ),
-      drawer: AdminMainDrawer(),
-      body: Container(
-        child: Center(child: Text('Admin Dashboard',
-        style: Theme.of(context).textTheme.titleSmall,)),
-      ),
+      drawer:const AdminMainDrawer(),
+      body: Center(child: Text('Admin Dashboard',
+      style: Theme.of(context).textTheme.titleSmall,)),
     );
   }
 }

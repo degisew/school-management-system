@@ -1,23 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:my_school/screens/addAttendance.dart';
-import 'package:my_school/widgets/studmaindrawer.dart';
-import 'package:my_school/widgets/teachmaindrawer.dart';
+//import 'package:my_school/widgets/admin_main_drawer.dart';
+import 'package:my_school/widgets/director_main_drawer.dart';
+//import 'package:my_school/widgets/exit_changepinConfirmation.dart';
+//import 'package:my_school/widgets/stud_main_drawer.dart';
+//import 'package:my_school/widgets/teach_main_drawer.dart';
 
-class Teachactivities extends StatefulWidget {
-  const Teachactivities({Key? key}) : super(key: key);
+class Directortasks extends StatefulWidget {
+  const Directortasks({Key? key}) : super(key: key);
 
   @override
-  State<Teachactivities> createState() => _TeachactivitiesState();
+  State<Directortasks> createState() => _DirectortasksState();
 }
 
-class _TeachactivitiesState extends State<Teachactivities> {
+class _DirectortasksState extends State<Directortasks> {
+// Widget userlogindetector(){
+//   if(logeduser==student{
+//     return Studmaindrawer();
+//   }else if(logeduser==parent){
+//     return ParentMainDrawer();
+//   }else if(logeduser==admin){
+//     return AdminMainDrawer();
+//   }else if(logeduser==teacher){
+//     return teacherMainDrawer();
+//   }else{
+//     return DirectorMainDrawer();
+//   }
+// }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(),
-        drawer: const Teachmaindrawer(),
+        // endDrawer: userlogindetector,
+        drawer: const Directormaindrawer(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,14 +43,14 @@ class _TeachactivitiesState extends State<Teachactivities> {
                 Padding(
                   padding: EdgeInsets.only(left: 20, top: 50),
                   child: Icon(
-                    Icons.local_activity,
+                    Icons.task,
                     size: 40,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 20, top: 50),
                   child: Text(
-                    'Activities',
+                    'Tasks',
                     style: TextStyle(
                       fontFamily: 'RobotoMono',
                       fontWeight: FontWeight.bold,
@@ -58,10 +75,10 @@ class _TeachactivitiesState extends State<Teachactivities> {
                     width: 300,
                     height: 250,
                     child: const TabBar(
-                      indicatorPadding:  EdgeInsets.all(10),
-                      indicatorWeight: 13,
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      indicatorColor: Colors.black,
+                        indicatorPadding: EdgeInsets.all(10),
+                        indicatorWeight: 13,
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        indicatorColor: Colors.black,
                         unselectedLabelColor: Colors.black,
                         unselectedLabelStyle: TextStyle(
                           backgroundColor: Colors.white,
@@ -77,47 +94,28 @@ class _TeachactivitiesState extends State<Teachactivities> {
                             fontSize: 20),
                         tabs: [
                           RotatedBox(
-                              quarterTurns: 3, child: Text('Add Attendance')),
+                              quarterTurns: 3, child: Text('View Report')),
                           RotatedBox(
                             quarterTurns: 3,
-                            child: Text('View Notification'),
+                            child: Text('Add Post'),
                           ),
-                          RotatedBox(
-                              quarterTurns: 3, child: Text('Submit Grade')),
-                          RotatedBox(
-                              quarterTurns: 3,
-                              child: Text('Post Notification')),
                         ]),
                   ),
                 ),
-                Flexible(
-                    child: Card(
+                const Flexible(
+                    child:  Card(
                   elevation: 30,
-                  margin: const EdgeInsets.only(left: 150, right: 200),
-                  child: Container(
+                  margin:  EdgeInsets.only(left: 150, right: 200),
+                  child: SizedBox(
                     //padding: const EdgeInsets.only(left: 150, right: 200),
                     //width: double.maxFinite,
                     height: 500,
                     child: TabBarView(children: [
-                      Container(
-                        child: const Center(
-                          child: Text('Add At...'),
-                        ),
+                       Center(
+                        child: Text('view report...'),
                       ),
-                      Container(
-                        child: const Center(
-                          child: Text('Sub G...'),
-                        ),
-                      ),
-                      Container(
-                        child: const Center(
-                          child: Text('Post N...'),
-                        ),
-                      ),
-                      Container(
-                        child: const Center(
-                          child: Text('View N...'),
-                        ),
+                       Center(
+                        child: Text('add post..'),
                       ),
                     ]),
                   ),

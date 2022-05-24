@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/LoginScreen.dart';
-import '../screens/homescreen.dart';
+import '../screens/home_screen.dart';
 
 class ExitConfirmation extends StatelessWidget {
   const ExitConfirmation({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/Adminmaindrawer.dart';
+import '../widgets/admin_main_drawer.dart';
 
 class ManageUser extends StatelessWidget {
   const ManageUser({ Key? key }) : super(key: key);
@@ -11,7 +11,7 @@ class ManageUser extends StatelessWidget {
       length: 5,
       child: Scaffold(
         appBar: AppBar(),
-        drawer: AdminMainDrawer(),
+        drawer: const AdminMainDrawer(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -54,7 +54,7 @@ class ManageUser extends StatelessWidget {
                     child: const TabBar(
                         indicatorPadding: EdgeInsets.all(10),
                         indicatorWeight: 13,
-                        indicatorSize: TabBarIndicatorSize.tab,
+                        indicatorSize: TabBarIndicatorSize.label,
                         indicatorColor: Colors.black,
                         unselectedLabelColor: Colors.black,
                         unselectedLabelStyle: TextStyle(
@@ -71,53 +71,43 @@ class ManageUser extends StatelessWidget {
                             fontSize: 20),
                         tabs: [
                           RotatedBox(
-                              quarterTurns: 3, child: Text('Manage Student')),
+                              quarterTurns: 3, child: Text('Manage Students')),
                           RotatedBox(
                             quarterTurns: 3,
-                            child: Text('Manage Teacher'),
+                            child: Text('Manage Teachers'),
                           ),
                           RotatedBox(
                               quarterTurns: 3, child: Text('Manage Director')),
                           RotatedBox(
-                              quarterTurns: 3, child: Text('Manage Parent')),
+                              quarterTurns: 3, child: Text('Manage Parents')),
                           RotatedBox(
-                              quarterTurns: 3, child: Text('Manage Subject')),
+                              quarterTurns: 3, child: Text('Manage Subjects')),
                         ]),
                   ),
                 ),
-                Flexible(
+                const Flexible(
                     child: Card(
                   elevation: 30,
-                  margin: const EdgeInsets.only(left: 150, right: 200),
-                  child: Container(
+                  margin:  EdgeInsets.only(left: 150, right: 200),
+                  child: SizedBox(
                     //padding: const EdgeInsets.only(left: 150, right: 200),
                     //width: double.maxFinite,
                     height: 500,
                     child: TabBarView(children: [
-                      Container(
-                        child: const Center(
-                          child: Text('Manage stu...'),
-                        ),
+                       Center(
+                        child: Text('Manage stu...'),
                       ),
-                      Container(
-                        child: const Center(
-                          child: Text('Manage T...'),
-                        ),
+                       Center(
+                        child: Text('Manage T...'),
                       ),
-                      Container(
-                        child: const Center(
-                          child: Text('Manage D...'),
-                        ),
+                       Center(
+                        child: Text('Manage D...'),
                       ),
-                      Container(
-                        child: const Center(
-                          child: Text('Manage P...'),
-                        ),
+                       Center(
+                        child: Text('Manage P...'),
                       ),
-                      Container(
-                        child: const Center(
-                          child: Text('Manage Sub...'),
-                        ),
+                       Center(
+                        child: Text('Manage Sub...'),
                       ),
                     ]),
                   ),

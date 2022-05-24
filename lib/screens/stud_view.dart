@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:my_school/screens/SettingsScreen.dart';
+import '../widgets/stud_main_drawer.dart';
 
-import '../widgets/teachmaindrawer.dart';
-
-class Addattendance extends StatefulWidget {
-  const Addattendance({Key? key}) : super(key: key);
+class StudView extends StatefulWidget {
+  const StudView({ Key? key }) : super(key: key);
 
   @override
-  State<Addattendance> createState() => _AddattendanceState();
+  State<StudView> createState() => _StudViewState();
 }
 
-class _AddattendanceState extends State<Addattendance> {
-  List dropdownvalues = ['7th A', '8th B'];
-  var datepickercontroller = TextEditingController();
+class _StudViewState extends State<StudView> {
   @override
   Widget build(BuildContext context) {
-    String dropdownitemvalues = '${dropdownvalues[0]}';
     return Scaffold(
-      appBar: AppBar(),
-      endDrawer: const Teachmaindrawer(),
+      
+       appBar: AppBar(),
+       endDrawer:const Studmaindrawer(),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,7 +32,7 @@ class _AddattendanceState extends State<Addattendance> {
                     Padding(
                       padding: EdgeInsets.only(left: 15),
                       child: Text(
-                        'Activities',
+                        'View',
                         style: TextStyle(
                           fontFamily: 'RobotoMono',
                           fontWeight: FontWeight.bold,
@@ -55,7 +51,7 @@ class _AddattendanceState extends State<Addattendance> {
                       Padding(
                           padding: EdgeInsets.only(left: 15),
                           child: Text(
-                            'Add Attendance',
+                            'Attendance',
                             style: TextStyle(),
                           )),
                     ],
@@ -73,7 +69,7 @@ class _AddattendanceState extends State<Addattendance> {
                       Icon(Icons.change_circle),
                       Padding(
                           padding: EdgeInsets.only(left: 15),
-                          child: Text('Post Grade')),
+                          child: Text('Marks')),
                     ],
                   ),
                   onTap: () {
@@ -88,7 +84,7 @@ class _AddattendanceState extends State<Addattendance> {
                       Padding(
                           padding: EdgeInsets.only(left: 15),
                           child: Text(
-                            'Post Notification',
+                            'Time Table',
                             style: TextStyle(),
                           )),
                     ],
@@ -114,69 +110,18 @@ class _AddattendanceState extends State<Addattendance> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 100, top: 80),
-            // child: Container(
-            //   width: 950,
-            //   height: 550,
-            //   decoration: const BoxDecoration(
-            //       gradient: LinearGradient(colors: [
-            //     Color.fromARGB(255, 214, 204, 204),
-            //     Color.fromARGB(255, 246, 241, 241),
-            //   ])),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 250,
-                      height: 30,
-                      child: DropdownButtonFormField(
-                       onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SettingsScreen())),
-                        items: dropdownvalues.map((item) {
-                          return DropdownMenuItem(
-                            onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SettingsScreen())),
-                            child: Text(item),
-                            value: item,
-                          );
-                        }).toList(),
-                        onChanged: (val) {
-                          dropdownitemvalues = val as String;
-                        },
-                        value: dropdownitemvalues,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 50),
-                      height: 30,
-                      width: 90,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.calendar_today),
-                            onPressed: () {
-                              showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime(2008),
-                                  firstDate: DateTime(2004),
-                                  lastDate: DateTime.now());
-                            },
-                          ),
-                        ),
-                        onTap: () {},
-                      ),
-                    )
-                  ],
-                )
-              ],
+          Card(
+            margin: const EdgeInsets.only(top: 70, left: 200),
+            elevation: 3,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            child: Container(
+              width: 750,
+              height: 450,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Text('profile status goes here.'),
             ),
           ),
         ],

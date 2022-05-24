@@ -7,20 +7,17 @@ class TextFormfield extends StatelessWidget {
   final TextEditingController controller;
   final Function errorstyle;
   final TextInputType keyboardtype;
-  // final Function validator;
 
-  TextFormfield({
-    //required this.hinttext,
+  const TextFormfield({Key? key, 
     required this.label,
     required this.controller,
     required this.errorstyle,
     required this.keyboardtype,
-    //  this.validator
-  });
+     }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: TextInputType.number,
+      keyboardType: keyboardtype,
       controller: controller,
       validator: (value) {
         if (value!.isEmpty) {
