@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_school/services/sample_http.dart';
 
 import '../widgets/mytextformfiled.dart';
 
@@ -23,7 +24,8 @@ class _TeachRegistrationState extends State<TeachRegistration> {
     return const TextStyle(
         fontWeight: FontWeight.bold, backgroundColor: Colors.white);
   }
-
+  var _qlfndropdownvalue = 'BSc';
+  var _genderdropdownvalue = 'Male';
   final _phonecontroller = TextEditingController();
   final _fnamecontroller = TextEditingController();
   final _mnamecontroller = TextEditingController();
@@ -39,8 +41,7 @@ class _TeachRegistrationState extends State<TeachRegistration> {
   Widget build(BuildContext context) {
     var platform = (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS);
-    var qlfndropdownvalue = 'BSc';
-    var genderdropdownvalue = 'Male';
+
 
     return Form(
         key: formkey,
@@ -164,12 +165,24 @@ class _TeachRegistrationState extends State<TeachRegistration> {
                     Container(
                       margin: const EdgeInsets.only(top: 20, bottom: 20),
                       width: 275,
-                      child: TextFormfield(
-                        // hinttext: 'Grand Father\'s Name',
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'this field is required';
+                          }
+
+                          return null;
+                        },
+                        keyboardType: TextInputType.number,
                         controller: _expcontroller,
-                        label: 'Experience',
-                        errorstyle: errorstyle,
-                        keyboardtype: TextInputType.text,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          label: const Text('Experience'),
+                          errorStyle: errorstyle(),
+                          suffixText: '.Yrs',
+                        ),
                       ),
                     ),
                     Container(
@@ -191,7 +204,7 @@ class _TeachRegistrationState extends State<TeachRegistration> {
                           ),
                           label: const Text('Salary'),
                           errorStyle: errorstyle(),
-                          suffixText: 'ETB',
+                          suffixText: '.ETB',
                         ),
                       ),
                     ),
@@ -243,9 +256,9 @@ class _TeachRegistrationState extends State<TeachRegistration> {
                                   );
                                 }).toList(),
                                 onChanged: (val) {
-                                  genderdropdownvalue = val as String;
+                                  _genderdropdownvalue = val as String;
                                 },
-                                value: genderdropdownvalue,
+                                value: _genderdropdownvalue,
                               ),
                             ),
                           ),
@@ -295,9 +308,9 @@ class _TeachRegistrationState extends State<TeachRegistration> {
                                       child: Text(item), value: item);
                                 }).toList(),
                                 onChanged: (val) {
-                                  qlfndropdownvalue = val as String;
+                                  _qlfndropdownvalue = val as String;
                                 },
-                                value: qlfndropdownvalue,
+                                value: _qlfndropdownvalue,
                               ),
                             ),
                           ),
@@ -314,6 +327,17 @@ class _TeachRegistrationState extends State<TeachRegistration> {
                       onPressed: () {
                         var formvalidate = formkey.currentState!.validate();
                         if (formvalidate) {
+                          addTeacher(
+                              _fnamecontroller.text,
+                              _mnamecontroller.text,
+                              _lnamecontroller.text,
+                              _agecontroller.text,
+                              _genderdropdownvalue,
+                              _qlfndropdownvalue,
+                              _phonecontroller.text,
+                              _addresscontroller.text,
+                              _salarycontroller.text,
+                              _expcontroller.text);
                           platform
                               ? ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(

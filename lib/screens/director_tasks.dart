@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:my_school/widgets/admin_main_drawer.dart';
+import 'package:my_school/widgets/add_post.dart';
 import 'package:my_school/widgets/director_main_drawer.dart';
-//import 'package:my_school/widgets/exit_changepinConfirmation.dart';
-//import 'package:my_school/widgets/stud_main_drawer.dart';
-//import 'package:my_school/widgets/teach_main_drawer.dart';
 
 class Directortasks extends StatefulWidget {
   const Directortasks({Key? key}) : super(key: key);
@@ -13,27 +10,13 @@ class Directortasks extends StatefulWidget {
 }
 
 class _DirectortasksState extends State<Directortasks> {
-// Widget userlogindetector(){
-//   if(logeduser==student{
-//     return Studmaindrawer();
-//   }else if(logeduser==parent){
-//     return ParentMainDrawer();
-//   }else if(logeduser==admin){
-//     return AdminMainDrawer();
-//   }else if(logeduser==teacher){
-//     return teacherMainDrawer();
-//   }else{
-//     return DirectorMainDrawer();
-//   }
-// }
-
+ 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(),
-        // endDrawer: userlogindetector,
         drawer: const Directormaindrawer(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,6 +28,7 @@ class _DirectortasksState extends State<Directortasks> {
                   child: Icon(
                     Icons.task,
                     size: 40,
+                    color: Color.fromARGB(255, 68, 138, 255),
                   ),
                 ),
                 Padding(
@@ -67,11 +51,6 @@ class _DirectortasksState extends State<Directortasks> {
                   quarterTurns: 1,
                   child: Container(
                     padding: const EdgeInsets.only(left: 20),
-                    // decoration: const BoxDecoration(
-                    //     gradient: LinearGradient(colors: [
-                    //   Colors.amber,
-                    //   Colors.amber,
-                    // ])),
                     width: 300,
                     height: 250,
                     child: const TabBar(
@@ -88,7 +67,6 @@ class _DirectortasksState extends State<Directortasks> {
                         labelColor: Colors.white,
                         labelStyle: TextStyle(
                             backgroundColor: Colors.green,
-                            //color: Colors.black,
                             fontFamily: 'RobotoMono',
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
@@ -102,21 +80,17 @@ class _DirectortasksState extends State<Directortasks> {
                         ]),
                   ),
                 ),
-                const Flexible(
-                    child:  Card(
+               const Flexible(
+                    child: Card(
                   elevation: 30,
                   margin:  EdgeInsets.only(left: 150, right: 200),
                   child: SizedBox(
-                    //padding: const EdgeInsets.only(left: 150, right: 200),
-                    //width: double.maxFinite,
                     height: 500,
                     child: TabBarView(children: [
                        Center(
                         child: Text('view report...'),
                       ),
-                       Center(
-                        child: Text('add post..'),
-                      ),
+                     AddPost('Director'),
                     ]),
                   ),
                 ))

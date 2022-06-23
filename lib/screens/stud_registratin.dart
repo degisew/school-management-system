@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../services/sample_http.dart';
 import '../widgets/mytextformfiled.dart';
 
 class StudRegistration extends StatefulWidget {
@@ -37,20 +38,21 @@ class _StudRegistrationState extends State<StudRegistration> {
   final _addresscontroller = TextEditingController();
   final _lnamecontroller = TextEditingController();
   final _agecontroller = TextEditingController();
-  final _addressContoller = TextEditingController();
+  //final _addressContoller = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
   TextStyle errorstyle() {
     return const TextStyle(
         fontWeight: FontWeight.bold, backgroundColor: Colors.white);
   }
-
+var _gradedropdownvalue = 'KG 1';
+var _genderdropdownvalue = 'Female';
+  var platform = (defaultTargetPlatform == TargetPlatform.android ||
+      defaultTargetPlatform == TargetPlatform.iOS);
   @override
   Widget build(BuildContext context) {
-    var gradedropdownvalue = 'KG 1';
-    var genderdropdownvalue = 'Female';
-    var platform = (defaultTargetPlatform == TargetPlatform.android ||
-        defaultTargetPlatform == TargetPlatform.iOS);
+    
+   
     return Form(
         key: _formkey,
         child: SingleChildScrollView(
@@ -128,7 +130,7 @@ class _StudRegistrationState extends State<StudRegistration> {
                       width: 275,
                       child: TextFormfield(
                         // hinttext: 'Address',
-                        controller:_addresscontroller,
+                        controller: _addresscontroller,
                         label: 'Address',
                         errorstyle: errorstyle,
                         keyboardtype: TextInputType.text,
@@ -153,10 +155,12 @@ class _StudRegistrationState extends State<StudRegistration> {
                             return null;
                           },
                           decoration: InputDecoration(
-                            counterText: '', //eliminates maxLength counter at the bottom
-                            errorStyle: errorstyle(),//error style is a method declaren in the top.
-                           // filled: true,//if true, the textfield fills with given fill color.
-                           // fillColor: Colors.white,//unused b/c, currently the default backg is white. 
+                            counterText:
+                                '', //eliminates maxLength counter at the bottom
+                            errorStyle:
+                                errorstyle(), //error style is a method declaren in the top.
+                            // filled: true,//if true, the textfield fills with given fill color.
+                            // fillColor: Colors.white,//unused b/c, currently the default backg is white.
                             prefixText: '+251 ',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
@@ -212,9 +216,9 @@ class _StudRegistrationState extends State<StudRegistration> {
                                   );
                                 }).toList(),
                                 onChanged: (val) {
-                                  genderdropdownvalue = val as String;
+                                  _genderdropdownvalue = val as String;
                                 },
-                                value: genderdropdownvalue,
+                                value: _genderdropdownvalue,
                               ),
                             ),
                           ),
@@ -261,12 +265,14 @@ class _StudRegistrationState extends State<StudRegistration> {
                                 iconEnabledColor: Colors.black87,
                                 items: gradedropdownitems.map((item) {
                                   return DropdownMenuItem(
-                                      child: Text(item), value: item);
+                                      child: Text(item),
+                                       value: item
+                                       );
                                 }).toList(),
                                 onChanged: (val) {
-                                  gradedropdownvalue = val as String;
+                                  _gradedropdownvalue = val as String;
                                 },
-                                value: gradedropdownvalue,
+                                value: _gradedropdownvalue,
                               ),
                             ),
                           ),
@@ -283,6 +289,16 @@ class _StudRegistrationState extends State<StudRegistration> {
                       onPressed: () {
                         var formvalidate = _formkey.currentState!.validate();
                         if (formvalidate) {
+                          addStudent(
+                              _fnamecontroller.text,
+                              _mnamecontroller.text,
+                              _lnamecontroller.text,
+                              _agecontroller.text,
+                              _genderdropdownvalue,
+                              _gradedropdownvalue,
+                              _phonecontroller.text,
+                             _addresscontroller.text
+                              );
                           platform
                               ? ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
@@ -330,7 +346,7 @@ class _StudRegistrationState extends State<StudRegistration> {
                                             ),
                                             onPressed: () {
                                               Navigator.pop(context);
-                                              _addressContoller.clear();
+                                              _addresscontroller.clear();
                                               _phonecontroller.clear();
                                               _agecontroller.clear();
                                               _fnamecontroller.clear();

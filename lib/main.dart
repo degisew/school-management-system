@@ -39,14 +39,14 @@ void main() {
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
               bodySmall: const TextStyle(
-                color: Colors.amber,
+                color: Color.fromARGB(255, 194, 153, 31),
               ),
               titleSmall: const TextStyle(
                 fontFamily: 'Lobster',
                 fontSize: 20,
               ),
             ),
-      ),
+      )
       //     ),
       //   ),
     ),

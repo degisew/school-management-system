@@ -27,7 +27,7 @@ class Teachmaindrawer extends StatelessWidget {
             onTap: () => Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: ((context) => const Teachmainscreen())),
+                  builder: ((context) => const TeachMainScreen())),
             ),
           ),
           ListTile(

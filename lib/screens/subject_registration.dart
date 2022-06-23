@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../services/sample_http.dart';
+
 class SubjectRegistration extends StatefulWidget {
   const SubjectRegistration({Key? key}) : super(key: key);
 
@@ -38,6 +40,8 @@ class _SubjectregistrationState extends State<SubjectRegistration> {
   final snamecontroller = TextEditingController();
   final scodecontroller = TextEditingController();
   final instructorcontroller = TextEditingController();
+  var gradedropdownvalue = 'KG 1';
+  var crhrdropdownvalue = '3 CrHr';
 
   var formkey = GlobalKey<FormState>();
   TextStyle errorstyle() {
@@ -51,8 +55,7 @@ class _SubjectregistrationState extends State<SubjectRegistration> {
     //tells runApp to draw a widget on the screen.
     var platform = (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS);
-    var gradedropdownvalue = 'KG 1';
-    var crhrdropdownvalue = '3 CrHr';
+
     return Form(
       key: formkey,
       child: SingleChildScrollView(
@@ -227,6 +230,12 @@ class _SubjectregistrationState extends State<SubjectRegistration> {
                     onPressed: () {
                       var formvalidate = formkey.currentState!.validate();
                       if (formvalidate) {
+                        addSubject(
+                          snamecontroller.text,
+                          scodecontroller.text,
+                          gradedropdownvalue, 
+                          crhrdropdownvalue
+                          );
                         platform
                             ? ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(

@@ -71,6 +71,7 @@ class _AdduserState extends State<Adduser> {
                   child: Icon(
                     Icons.person_add,
                     size: 40,
+                    color: Color.fromARGB(255, 68, 138, 255),
                   ),
                 ),
                 Padding(
@@ -86,7 +87,9 @@ class _AdduserState extends State<Adduser> {
                 ),
               ],
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+             children: [
               RotatedBox(
                 quarterTurns: 1,
                 child: Container(

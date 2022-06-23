@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_school/services/sample_http.dart';
 import '../widgets/mytextformfiled.dart';
 
 class DirectorRegistration extends StatefulWidget {
@@ -21,8 +22,8 @@ class _DirectorRegistrationState extends State<DirectorRegistration> {
     'Female',
   ];
   List qlfndropdownitems = ['MSc', 'BSc', 'MA', 'BA', 'PhD'];
-  var genderdropdownvalue = 'Female';
-  var qlfndropdownvalue = 'BSc';
+  var _genderdropdownvalue = 'Female';
+  var _qlfndropdownvalue = 'BSc';
   final _phonecontroller = TextEditingController();
   final _fnamecontroller = TextEditingController();
   final _mnamecontroller = TextEditingController();
@@ -159,12 +160,24 @@ class _DirectorRegistrationState extends State<DirectorRegistration> {
                     Container(
                       margin: const EdgeInsets.only( bottom: 20),
                       width: 275,
-                      child: TextFormfield(
-                        // hinttext: 'Grand Father\'s Name',
+                      child: TextFormField(
+                         validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'this field is required';
+                          }
+
+                          return null;
+                        },
+                        keyboardType: TextInputType.number,
                         controller: _expcontroller,
-                        label: 'Experience',
-                        errorstyle: errorstyle,
-                        keyboardtype: TextInputType.text,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          label: const Text('Experience'),
+                          errorStyle: errorstyle(),
+                          suffixText: '.Yrs',
+                        ),
                       ),
                     ),
                     Container(
@@ -186,7 +199,7 @@ class _DirectorRegistrationState extends State<DirectorRegistration> {
                           ),
                           label: const Text('Salary'),
                           errorStyle: errorstyle(),
-                          suffixText: 'ETB',
+                          suffixText: '.ETB',
                         ),
                       ),
                     ),
@@ -238,9 +251,9 @@ class _DirectorRegistrationState extends State<DirectorRegistration> {
                                   );
                                 }).toList(),
                                 onChanged: (val) {
-                                  genderdropdownvalue = val as String;
+                                  _genderdropdownvalue = val as String;
                                 },
-                                value: genderdropdownvalue,
+                                value: _genderdropdownvalue,
                               ),
                             ),
                           ),
@@ -290,9 +303,9 @@ class _DirectorRegistrationState extends State<DirectorRegistration> {
                                       child: Text(item), value: item);
                                 }).toList(),
                                 onChanged: (val) {
-                                  qlfndropdownvalue = val as String;
+                                  _qlfndropdownvalue = val as String;
                                 },
-                                value: qlfndropdownvalue,
+                                value: _qlfndropdownvalue,
                               ),
                             ),
                           ),
@@ -309,6 +322,18 @@ class _DirectorRegistrationState extends State<DirectorRegistration> {
                       onPressed: () {
                         var formvalidate = _formkey.currentState!.validate();
                         if (formvalidate) {
+                          addDirector(
+                            _fnamecontroller.text,
+                             _mnamecontroller.text, 
+                             _lnamecontroller.text, 
+                             _agecontroller.text,
+                              _genderdropdownvalue,
+                               _qlfndropdownvalue,
+                                _phonecontroller.text,
+                                 _addresscontroller.text,
+                                  _salarycontroller.text,
+                                   _expcontroller.text
+                                   );
                           platform
                               ? ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(

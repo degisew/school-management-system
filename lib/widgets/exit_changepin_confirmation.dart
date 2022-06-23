@@ -9,12 +9,10 @@ class ExitConfirmation extends StatelessWidget {
     return ListTile(
         // title:
         title: const Text('Logout'),
-        trailing: const Icon(Icons.logout),
+        trailing: const Icon(
+          Icons.logout,
+        ),
         onTap: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => const LoginSceen()),
-          // );
           showDialog(
               context: context,
               builder: (ctx) {
@@ -23,7 +21,11 @@ class ExitConfirmation extends StatelessWidget {
                     children: const [
                       Padding(
                           padding: EdgeInsets.only(right: 10),
-                          child: Icon(Icons.warning)),
+                          child: Icon(
+                            Icons.warning,
+                            size: 40,
+                            color: Color.fromARGB(255, 183, 140, 13),
+                          )),
                       Text(
                         'Exit?',
                         style: TextStyle(
@@ -40,9 +42,7 @@ class ExitConfirmation extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            elevation: 0.0
-                          ),
+                              primary: Colors.white, elevation: 0.0),
                           onPressed: () {
                             Navigator.pushReplacement(
                               context,
@@ -59,9 +59,7 @@ class ExitConfirmation extends StatelessWidget {
                         const Spacer(),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            elevation: 0.0
-                          ),
+                              primary: Colors.white, elevation: 0.0),
                           onPressed: () {
                             Navigator.of(context).pop();
                             Navigator.of(context).pop();

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_school/models/student_grid_view.dart';
-import 'package:my_school/screens/compalin_screen.dart';
+// import 'package:my_school/models/student_grid_view.dart';
+// import 'package:my_school/screens/compalin_screen.dart';
 import '../widgets/stud_main_drawer.dart';
 
-class Studmainscreen extends StatelessWidget {
-  Studmainscreen({Key? key}) : super(key: key);
+class StudMainScreen extends StatelessWidget {
+ const StudMainScreen({Key? key}) : super(key: key);
   final bool wilpop = false;
 
   @override
@@ -21,7 +21,7 @@ class Studmainscreen extends StatelessWidget {
             ),
           ),
         ),
-        endDrawer: const Studmaindrawer(),
+        drawer: const Studmaindrawer(),
         
       )
     );

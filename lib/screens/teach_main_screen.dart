@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/teach_main_drawer.dart';
 
-class Teachmainscreen extends StatelessWidget {
-  const Teachmainscreen({Key? key}) : super(key: key);
+class TeachMainScreen extends StatelessWidget {
+  const TeachMainScreen({Key? key}) : super(key: key);
   final bool wilpop = false;
   // final List<StudGridView> homescreengrid = [
   //   StudGridView(title: 'Home', icon: const Icon(Icons.home_filled)),

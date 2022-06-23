@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_school/widgets/add_post.dart';
 import '../widgets/teach_main_drawer.dart';
 
 class Teachactivities extends StatefulWidget {
@@ -26,6 +27,7 @@ class _TeachactivitiesState extends State<Teachactivities> {
                   child: Icon(
                     Icons.local_activity,
                     size: 40,
+                    color: Color.fromARGB(255, 68, 138, 255),
                   ),
                 ),
                 Padding(
@@ -101,13 +103,13 @@ class _TeachactivitiesState extends State<Teachactivities> {
                         child: Text('Add At...'),
                       ),
                        Center(
-                        child: Text('Sub G...'),
-                      ),
-                       Center(
-                        child: Text('Post N...'),
-                      ),
-                       Center(
                         child: Text('View N...'),
+                      ),
+                       Center(
+                        child: Text('Submit G...'),
+                      ),
+                       Center(
+                        child: AddPost('Teacher'),
                       ),
                     ]),
                   ),

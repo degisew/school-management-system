@@ -1,5 +1,5 @@
 //import 'package:fluent_ui/fluent_ui.dart';
-import 'package:dropdown_button2/custom_dropdown_button2.dart';
+//import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
 //import 'package:my_school/models/student_grid_view.dart';
 //import 'package:my_school/screens/compalin_screen.dart';
@@ -9,22 +9,20 @@ import 'package:my_school/widgets/director_main_drawer.dart';
 //import '../widgets/stud_main_drawer.dart';
 //import 'package:dropdown_button2/dropdown_button2.dart';
 
-class Directormainscreen extends StatefulWidget {
-  const Directormainscreen({Key? key}) : super(key: key);
+class DirectorMainScreen extends StatefulWidget {
+  const DirectorMainScreen({Key? key}) : super(key: key);
 
   @override
-  State<Directormainscreen> createState() => _DirectormainscreenState();
+  State<DirectorMainScreen> createState() => _DirectorMainScreenState();
 }
 
-class _DirectormainscreenState extends State<Directormainscreen> {
-  final bool wilpop = false;
+class _DirectorMainScreenState extends State<DirectorMainScreen> {
 
+  final bool wilpop = false;
   List<String> dropdownitems=['a','b','c','d'];
 
   @override
   Widget build(BuildContext context) {
-
-    
 
     return WillPopScope(
       onWillPop: () async => wilpop,
@@ -77,20 +75,22 @@ class _DirectormainscreenState extends State<Directormainscreen> {
           appBar: AppBar(
             // toolbarHeight: 50,
             //leadingWidth: 260,
-            actions:[
+            centerTitle: true,
+            title:const Text('Welocome Director'),
+            // actions:[
 
-                  //const Icon(Icons.school),
-                  ElevatedButton(
-                    onPressed: ((){
-                      showDialog(
-                        context: context,
-                         builder:(context)=>const AlertDialog(
+            //       //const Icon(Icons.school),
+            //       ElevatedButton(
+            //         onPressed: ((){
+            //           showDialog(
+            //             context: context,
+            //              builder:(context)=>const AlertDialog(
                            
-                         )
+            //              )
                          
-                         );
-                    }),
-                    child: const Text('Tasks'),
+            //              );
+            //         }),
+            //         child: const Text('Tasks'),
                       // child: PopupMenuButton(
                       //     //elevation: 150,
                       //     //  offset: Offset.fromDirection(5,1),
@@ -112,46 +112,46 @@ class _DirectormainscreenState extends State<Directormainscreen> {
                       //           const PopupMenuItem(child: Text('Add Payment')),
                       //         ]),
                     ),
-                 CustomDropdownButton2(hint: 'hint', value: dropdownitems[0], 
-                 dropdownItems: dropdownitems, onChanged: (val){
+                //  CustomDropdownButton2(hint: 'hint', value: dropdownitems[0], 
+                //  dropdownItems: dropdownitems, onChanged: (val){
                    
-                 }),
-                  PopupMenuButton(
-                      icon: const Text('view'),
-                      iconSize: 40,
-                      itemBuilder: (_) => [
-                            const PopupMenuItem(child: Text('View feedback')),
-                            // const PopupMenuItem(child: Text('Manage student')),
-                            // const PopupMenuItem(child: Text('Add Teacher')),
-                            // const PopupMenuItem(child: Text('Manage Teacher')),
-                          ]),
+                //  }),
+                //   PopupMenuButton(
+                //       icon: const Text('view'),
+                //       iconSize: 40,
+                //       itemBuilder: (_) => [
+                //             const PopupMenuItem(child: Text('View feedback')),
+                //             // const PopupMenuItem(child: Text('Manage student')),
+                //             // const PopupMenuItem(child: Text('Add Teacher')),
+                //             // const PopupMenuItem(child: Text('Manage Teacher')),
+                //           ]),
                           
-                  PopupMenuButton(
-                      icon: const Text('Settings'),
-                      iconSize: 50,
-                      itemBuilder: (_) => [
-                            const PopupMenuItem(child: Text('Profile Me')),
-                            const PopupMenuItem(child: Text('Change Pin')),
-                            // const PopupMenuItem(child: Text('Add Teacher')),
-                            // const PopupMenuItem(child: Text('Manage Teacher')),
-                          ]),
-                  PopupMenuButton(
-                      icon: const Text('Help'),
-                      iconSize: 40,
-                      itemBuilder: (_) => [
-                            const PopupMenuItem(child: Text('Add student')),
-                            const PopupMenuItem(child: Text('Manage student')),
-                            const PopupMenuItem(child: Text('Add Teacher')),
-                            const PopupMenuItem(child: Text('Manage Teacher')),
-                          ])
+                  // PopupMenuButton(
+                  //     icon: const Text('Settings'),
+                  //     iconSize: 50,
+                  //     itemBuilder: (_) => [
+                  //           const PopupMenuItem(child: Text('Profile Me')),
+                  //           const PopupMenuItem(child: Text('Change Pin')),
+                  //           // const PopupMenuItem(child: Text('Add Teacher')),
+                  //           // const PopupMenuItem(child: Text('Manage Teacher')),
+                  //         ]),
+                  // PopupMenuButton(
+                  //     icon: const Text('Help'),
+                  //     iconSize: 40,
+                  //     itemBuilder: (_) => [
+                  //           const PopupMenuItem(child: Text('Add student')),
+                  //           const PopupMenuItem(child: Text('Manage student')),
+                  //           const PopupMenuItem(child: Text('Add Teacher')),
+                  //           const PopupMenuItem(child: Text('Manage Teacher')),
+                  //         ])
             // ],Container(
             //   child: Row(
             //     //mainAxisAlignment: MainAxisAlignment.spaceAround,
 
                 //children: 
-                ],
+               // ],
             
-            ),
+           // ),
             //automaticallyImplyLeading: false,
             // title: Center(
             //   child: Text(

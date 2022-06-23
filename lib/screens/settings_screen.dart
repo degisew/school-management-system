@@ -41,6 +41,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   child: Icon(
                     Icons.settings,
                     size: 40,
+                    color: Color.fromARGB(255, 68, 138, 255),
                   ),
                 ),
                 Padding(
@@ -73,12 +74,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       child: Column(
                         children: const [
                           TabBar(
-                            isScrollable: true,
-                              labelPadding:
-                                  EdgeInsets.only(left: 20, right: 20),
-                              labelColor: Colors.black,
+                           indicatorPadding: EdgeInsets.all(10),
+                              indicatorWeight: 13,
+                              indicatorSize: TabBarIndicatorSize.label,
+                              indicatorColor: Colors.black,
+                              unselectedLabelColor: Colors.black,
+                              unselectedLabelStyle: TextStyle(
+                                backgroundColor: Colors.white,
+                              ),
+                              padding: EdgeInsets.only(top: 0),
+                              isScrollable: true,
+                              labelColor: Colors.white,
                               labelStyle: TextStyle(
-                                  color: Colors.black,
+                                  backgroundColor: Colors.green,
+                                  //color: Colors.black,
                                   fontFamily: 'RobotoMono',
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20),
@@ -104,7 +113,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Flexible(
                   child: Card(
                     elevation: 20,
-                    margin:  EdgeInsets.only(left: 150, right: 200),
+                    margin: EdgeInsets.only(left: 150, right: 200),
                     child: SizedBox(
                       // padding: const EdgeInsets.only(left: 160, right: 150),
                       //alignment: Alignment.center,
@@ -113,10 +122,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       // width: double.maxFinite,
                       child: TabBarView(
                         children: [
-                           Center(
+                          Center(
                             child: Text('Profile'),
                           ),
-                           Center(
+                          Center(
                             child: Text('change pin'),
                           ),
                         ],
